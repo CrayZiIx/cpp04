@@ -22,8 +22,9 @@ Dog::Dog() : Animal("Dog")
 Dog::Dog(const Dog &other) : Animal(other)
 {
 	std::cout<<"Dog : Constructor called - const Dog &other"<<std::endl;
-	*this = other;
-	return ;
+	this->_brain = new Brain(*other._brain);
+	this->type = other.type;
+	return ;	
 }
 
 Dog::~Dog()
@@ -38,11 +39,6 @@ Dog &Dog::operator=(const Dog &other)
 	delete this->_brain;
 	this->_brain = new Brain(*other._brain);
 	return (*this);
-}
-
-void Dog::getBrainadd(void) 
-{
-	std::cout << _brain << std::endl;
 }
 
 void Dog::makeSound(void) const

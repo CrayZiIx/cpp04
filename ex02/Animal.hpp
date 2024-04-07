@@ -6,24 +6,29 @@
 /*   By: jolecomt <jolecomt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:37:46 by jolecomt          #+#    #+#             */
-/*   Updated: 2024/03/28 14:58:23 by jolecomt         ###   ########.fr       */
+/*   Updated: 2024/03/26 23:17:38 by jolecomt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+
 #include <iostream>
 #include <string>
 
-class AAnimal
+class Animal
 {
+	private:
 	protected:
 		std::string type;
 	public:
-		AAnimal(void);
-		AAnimal(std::string _type);
-		AAnimal(const AAnimal &other);
-		virtual ~AAnimal();
+		Animal(void);
+		Animal(std::string _type);
+		Animal(const Animal &other);
+		virtual ~Animal();
 		std::string getType(void) const;
-		virtual void makeSound(void) const;
-		AAnimal	&operator=(const AAnimal &other);
+		virtual void makeSound(void) const = 0;
+		Animal	&operator=(const Animal &other);
 };
+
+#endif

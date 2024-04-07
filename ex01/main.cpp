@@ -14,12 +14,48 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int main(void)
+// void test()
+// {
+// 	Dog basic;
+// 	{
+// 		Dog tmp = basic;
+// 	}
+// }
+
+// int main(void)
+// {
+// 	Dog *test1 = new Dog();
+// 	Dog *test2 = new Dog();
+
+// 	test1->getBrainadd();
+// 	*test2 = *test1;
+// 	test2->getBrainadd();
+// 	test();
+// 	delete test1;
+// 	delete test2;
+// 	return (0);
+// }
+
+#define ARRAY_SIZE	10
+
+int	main(void)
 {
-	Dog *test1 = new Dog();
-	Dog *test2 = new Dog();
-	test1->getBrainadd();
-	*test2 = *test1;
-	test2->getBrainadd();
+	Animal	*animal_array[ARRAY_SIZE];
+
+	for (unsigned int i(0); i < ARRAY_SIZE; i++)
+	{
+		if (i * 2 < ARRAY_SIZE)
+			animal_array[i] = new Dog();
+		else
+			animal_array[i] = new Cat();
+	}
+	std::cout << std::endl;
+	for (unsigned int i(0); i < ARRAY_SIZE; i++)
+	{
+		animal_array[i]->makeSound();
+	}
+	std::cout << std::endl;
+	for (unsigned int i(0); i < ARRAY_SIZE; i++)
+		delete animal_array[i];
 	return (0);
 }

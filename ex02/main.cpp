@@ -6,52 +6,55 @@
 /*   By: jolecomt <jolecomt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:37:42 by jolecomt          #+#    #+#             */
-/*   Updated: 2024/03/26 22:29:25 by jolecomt         ###   ########.fr       */
+/*   Updated: 2024/03/26 22:36:45 by jolecomt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
-void good(void)
+// void test()
+// {
+// 	Dog basic;
+// 	{
+// 		Dog tmp = basic;
+// 	}
+// }
+
+// int main(void)
+// {
+// 	Dog *test1 = new Dog();
+// 	Dog *test2 = new Dog();
+
+// 	*test2 = *test1;
+// 	test();
+// 	delete test1;
+// 	delete test2;
+// 	return (0);
+// }
+
+#define ARRAY_SIZE	10
+
+int	main(void)
 {
-	// const AAnimal* meta = new AAnimal();
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
-	
-	// std::cout<<meta->getType()<<" "<<std::endl;
-	// meta->makeSound();
-	std::cout<<j->getType()<<" "<<std::endl;
-	j->makeSound();
-	std::cout<<i->getType()<<" "<<std::endl;
-	i->makeSound(); //will output the cat sound!
+	Animal		*animal_array[ARRAY_SIZE];
+	//Animal	animal;
 
-	// delete meta; 
-	delete j;
-	delete i;
-}
-
-void wrong(void)
-{
-	const WrongAnimal* meta = new WrongAnimal();
-	const WrongAnimal* i = new WrongCat();
-	
-	std::cout<<meta->getType()<<" "<<std::endl;
-	meta->makeSound();
-	std::cout<<i->getType()<<" "<<std::endl;
-	i->makeSound(); //will output the cat sound!
-
-	delete meta; 
-	delete i;
-}
-
-int main(void)
-{
-	good();
-	std::cout<<std::endl<<std::endl;
-	wrong();
+	for (unsigned int i(0); i < ARRAY_SIZE; i++)
+	{
+		if (i * 2 < ARRAY_SIZE)
+			animal_array[i] = new Dog();
+		else
+			animal_array[i] = new Cat();
+	}
+	std::cout << std::endl;
+	for (unsigned int i(0); i < ARRAY_SIZE; i++)
+	{
+		animal_array[i]->makeSound();
+	}
+	std::cout << std::endl;
+	for (unsigned int i(0); i < ARRAY_SIZE; i++)
+		delete animal_array[i];
 	return (0);
 }

@@ -40,7 +40,7 @@ Animal::~Animal(void)
 		
 Animal	&Animal::operator=(const Animal &other)
 {
-	std::cout<<"testingggggggggg"<<std::endl;
+
 	this->type = other.type;
 	return (*this);
 }
@@ -55,5 +55,3 @@ std::string Animal::getType(void) const
 {
 	return (this->type);
 }
-
-void Animal::getBrainadd() {}

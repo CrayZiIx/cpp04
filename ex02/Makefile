@@ -16,14 +16,14 @@ SRC_DIR       =
 OBJ_DIR       = obj/
 
 CXX           = c++
-CXXFLAGS      = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS      = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC_FILES     = main\
 				Animal\
-				WrongAnimal\
 				Dog\
 				Cat\
-				WrongCat
+				Brain
+				
 
 SRC           = $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(SRC_FILES)))
 OBJ           = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

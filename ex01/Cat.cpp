@@ -22,8 +22,8 @@ Cat::Cat() : Animal("Cat")
 Cat::Cat(const Cat &other) : Animal(other)
 {
 	std::cout<<"Cat : Constructor called - const char &other"<<std::endl;
-	this->_brain = new Brain();
-	*this = other;
+	this->_brain = new Brain(*other._brain);
+	this->type = other.type;
 	return ;
 }
 Cat::~Cat()
@@ -35,10 +35,10 @@ Cat::~Cat()
 Cat	&Cat::operator=(const Cat &other)
 {
 	this->type = other.type;
+	delete this->_brain;
+	this->_brain = new Brain(*other._brain);
 	return (*this);
 }
-
-void Cat::getBrainadd() { std::cout << _brain << std::endl; }
 
 void Cat::makeSound(void) const
 {

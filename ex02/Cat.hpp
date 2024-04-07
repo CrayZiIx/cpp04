@@ -6,7 +6,7 @@
 /*   By: jolecomt <jolecomt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:45:58 by jolecomt          #+#    #+#             */
-/*   Updated: 2024/03/26 22:28:31 by jolecomt         ###   ########.fr       */
+/*   Updated: 2024/03/26 22:36:04 by jolecomt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Cat : public AAnimal
+class Cat : public Animal
 {
-	protected:
+	private:
+		Brain *_brain;
 	public:
 		Cat();
 		Cat(const Cat &other);
